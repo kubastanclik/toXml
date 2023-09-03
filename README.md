@@ -24,10 +24,6 @@ require 'vendor/autoload.php';
 use \Stanclik\ToXml\ToXml;
 use \Stanclik\ToXml\Blocks;
 
-require 'vendor/autoload.php';
-use \Stanclik\ToXml\ToXml;
-use \Stanclik\ToXml\Blocks;
-
 $xml = new ToXml([]);
 
 // set document header
@@ -74,6 +70,7 @@ $xml->get();
         </attributes>
     </item>
 </offers>
+```
 
 ## Blocks
 
