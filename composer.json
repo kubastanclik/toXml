@@ -1,0 +1,20 @@
+{
+    "name": "stanclik/to-xml",
+    "description": "A simple library to generate xml files",
+    "type": "libary",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Stanclik\\ToXml\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jakub Stanclik",
+            "email": "j.stanclik@arris.pl"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    }
+}
