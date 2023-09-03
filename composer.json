@@ -1,6 +1,8 @@
 {
     "name": "stanclik/to-xml",
     "description": "A simple library to generate xml files",
+    "tags": ["xml"],
+    "homepage": "https://github.com/kubastanclik/toXml",
     "type": "libary",
     "license": "MIT",
     "autoload": {
@@ -14,7 +16,7 @@
             "email": "j.stanclik@arris.pl"
         }
     ],
-    "require-dev": {
-        "symfony/var-dumper": "^6.3"
+    "require": {
+        "php": ">=7.4.0"
     }
 }
