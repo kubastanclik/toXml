@@ -9,6 +9,11 @@ class Blocks
     public const IBM = 'ibm1140';
     public const ISO_8859 = 'ISO-8859-1';
     public const WINDOWS = 'windows-1252';
+
+    /**
+     * @param $params
+     * @return string
+     */
     public static function header($params): string
     {
 
@@ -21,6 +26,13 @@ class Blocks
         return "<?xml $parsedParams?>" . PHP_EOL;
     }
 
+    /**
+     * @param string $name
+     * @param array $blocks
+     * @param array $params
+     * @param string $nameSpace
+     * @return string
+     */
     public static function tag(string $name, array $blocks = [], array $params = [], string $nameSpace = ''): string
     {
 
@@ -45,6 +57,11 @@ class Blocks
         return "\t<{$nameSpace}{$name} {$parsedParams}>\n{$tagContent}\n\t</{$nameSpace}{$name}>";
     }
 
+    /**
+     * @param string $value
+     * @param bool $useCdata
+     * @return string
+     */
     public static function content(string $value, bool $useCdata = true): string
     {
         if ($useCdata) {
@@ -54,6 +71,10 @@ class Blocks
         return $value;
     }
 
+    /**
+     * @param string $value
+     * @return string
+     */
     public static function raw(string $value): string
     {
         return $value;

@@ -1,12 +1,34 @@
 <?php
 namespace Stanclik\ToXml;
+/**
+ *  Base Class
+ */
 class BaseClass
 {
+    /**
+     * @var array
+     */
     private array $params;
+    /**
+     * @var string
+     */
     private String $xml;
+    /**
+     * @var array
+     */
     private array $rootNode = [];
+    /**
+     * @var string
+     */
     private String $header = '';
+    /**
+     * @var String
+     */
     private String $rendered;
+
+    /**
+     * @param $params
+     */
     public function __construct($params)
     {
         $this->params = $params;
@@ -16,6 +38,9 @@ class BaseClass
         $this->init();
     }
 
+    /**
+     * @return void
+     */
     public function init(): void
     {
         foreach ($this->params as $param) {
@@ -23,6 +48,11 @@ class BaseClass
         }
     }
 
+    /**
+     * @param String $node
+     * @param array $params
+     * @return $this
+     */
     public function root(String $node, array $params = []): BaseClass
     {
         if (!empty($params)) {
@@ -43,11 +73,19 @@ class BaseClass
         return $this;
     }
 
+    /**
+     * @param $header
+     * @return void
+     */
     public function setHeaders($header): void
     {
         $this->header .= $header . PHP_EOL;
     }
 
+    /**
+     * @param $params
+     * @return string
+     */
     private function parseParameters($params): string
     {
         $parsedParams = array_map(function($key, $param) {
@@ -57,6 +95,10 @@ class BaseClass
         return trim(implode(' ', $parsedParams));
     }
 
+    /**
+     * @param ...$blocks
+     * @return $this
+     */
     public function add(...$blocks): BaseClass
     {
         $temporary = [];
@@ -72,6 +114,9 @@ class BaseClass
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function render(): BaseClass
     {
         $this->rendered = "{$this->header}{$this->rootNode[0]}\n{$this->xml}\n{$this->rootNode[1]}";
@@ -79,11 +124,17 @@ class BaseClass
         return $this;
     }
 
+    /**
+     * @return void
+     */
     public function print(): void
     {
         echo $this->rendered;
     }
 
+    /**
+     * @return string
+     */
     public function get(): string
     {
         return $this->rendered;
