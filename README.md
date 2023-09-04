@@ -97,7 +97,7 @@ Blocks::tag(
 #### Content
 
 ```php
-Blocks::raw(
+Blocks::content(
     'Lorem Ipsum' // content inside the element,
     true|false // wrap the content in CDATA tags
 )
@@ -105,7 +105,7 @@ Blocks::raw(
 
 #### Raw
 ```php
-Blocks::content(
+Blocks::raw(
     '<tag><!CDATA[some stuff]]>' // just add raw tag
 )
 ```
